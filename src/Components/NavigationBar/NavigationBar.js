@@ -16,8 +16,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 
 import Logo from "../Constants/Logo";
 import SearchBar from "../SearchBar/SearchBar";
@@ -85,7 +83,7 @@ const NavigationBar = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} sx={{ backgroundColor: "#000" }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -104,41 +102,48 @@ const NavigationBar = () => {
           </div>
         </Toolbar>
       </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
+      <div style={{ overflowY: "hidden" }}>
+        <Drawer
+          sx={{
             width: drawerWidth,
-            boxSizing: "border-box",
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {categories.map((data, i) => (
-            <ListItem key={i} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>{data.icon}</ListItemIcon>
-                <ListItemText primary={data.name} />
-              </ListItemButton>
-              <Divider />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              width: drawerWidth,
+              boxSizing: "border-box",
+              backgroundColor: "#000",
+              color: "white",
+            },
+            "& .MuiDrawer-paper::-webkit-scrollbar": {
+              display: "none",
+            },
+          }}
+          variant="persistent"
+          anchor="left"
+          open={open}
+        >
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose} sx={{ color: "white" }}>
+              {theme.direction === "ltr" ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          <List>
+            {categories.map((data, i) => (
+              <ListItem key={i} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon sx={{ color: "red" }}>{data.icon}</ListItemIcon>
+                  <ListItemText primary={data.name} />
+                </ListItemButton>
+                <Divider />
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+      </div>
     </Box>
   );
 };
