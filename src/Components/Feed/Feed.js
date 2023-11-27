@@ -14,8 +14,13 @@ const Feed = () => {
   }, []);
 
   return (
-    <div style={{ marginTop: "75px", backgroundColor: "#000" }}>
-      <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
+    <div style={{ marginTop: "60px" }}>
+      <Stack
+        sx={{
+          flexDirection: { sx: "column", md: "row" },
+          backgroundColor: "#000",
+        }}
+      >
         <NavigationBar
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
@@ -25,16 +30,10 @@ const Feed = () => {
             height: { sx: "auto", md: "92vh" },
           }}
         >
-          <Typography variant="h4">
+          <Typography variant="h4" sx={{ backgroundColor: "#000" }}>
             <span style={{ color: "white" }}>{selectedCategory}</span>{" "}
             <span style={{ color: "red" }}>Videos</span>
           </Typography>
-          <h1>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis,
-            necessitatibus! Reiciendis odit porro cum consectetur, consequuntur
-            libero at facilis quia quis alias ducimus vel vitae, provident, ea
-            amet magni nemo?
-          </h1>
           <Videos videos={videos} />
         </Box>
       </Stack>
