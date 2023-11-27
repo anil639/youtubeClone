@@ -19,7 +19,7 @@ import ListItemText from "@mui/material/ListItemText";
 
 import Logo from "../Constants/Logo";
 import SearchBar from "../SearchBar/SearchBar";
-import categories from "../Constants/Constant";
+import { categories } from "../Constants/Constant";
 
 const drawerWidth = 240;
 
@@ -68,7 +68,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-const NavigationBar = () => {
+const NavigationBar = ({ selectedCategory, setSelectedCategory }) => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -134,7 +134,7 @@ const NavigationBar = () => {
           <List>
             {categories.map((data, i) => (
               <ListItem key={i} disablePadding>
-                <ListItemButton>
+                <ListItemButton onClick={() => setSelectedCategory(data.name)}>
                   <ListItemIcon sx={{ color: "red" }}>{data.icon}</ListItemIcon>
                   <ListItemText primary={data.name} />
                 </ListItemButton>
