@@ -26,7 +26,10 @@ const VideoCards = ({
           borderRadius: 1,
         }}
       >
-        <Link to={videoId ? `/video/${videoId}` : `/video/cV2gBU6hKfY`}>
+        <Link
+          to={videoId ? `/video/${videoId}` : `/video/cV2gBU6hKfY`}
+          style={{ textDecoration: "none" }}
+        >
           <CardMedia
             image={snippet?.thumbnails?.high?.url || demoThumbnailUrl}
             alt={snippet?.title}
@@ -37,7 +40,7 @@ const VideoCards = ({
           sx={{
             backgroundColor: "#000",
             color: "white",
-            height: "100%",
+            height: "110px",
           }}
         >
           <Link

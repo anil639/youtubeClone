@@ -21,7 +21,10 @@ const ChannelCard = ({ channelDetail, marginTop }) => {
           marginTop,
         }}
       >
-        <Link to={`/channel/${channelDetail?.id?.channelId}`}>
+        <Link
+          to={`/channel/${channelDetail?.id?.channelId}`}
+          style={{ textDecoration: "none" }}
+        >
           <CardContent
             sx={{
               display: "flex",
@@ -45,7 +48,7 @@ const ChannelCard = ({ channelDetail, marginTop }) => {
                 border: "1px solid #e3e3e3",
               }}
             />
-            <Typography variant="h6">
+            <Typography variant="h6" sx={{ textDecoration: "none" }}>
               {channelDetail?.snippet?.title}{" "}
               <CheckCircleIcon
                 sx={{ fontSize: "14px", color: "gray", ml: "5px" }}
