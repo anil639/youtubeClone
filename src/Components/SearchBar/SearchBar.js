@@ -3,6 +3,7 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 
+import { useNavigate } from "react-router-dom";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: "20px",
@@ -46,10 +47,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const SearchBar = () => {
-  const [searchTerm, setsearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
 
   const handlesubmit = (e) => {
     e.preventDefault();
+    if (searchTerm) {
+      navigate(`/search/${searchTerm}`);
+
+      setSearchTerm("");
+    }
   };
   return (
     <div>
@@ -62,7 +69,7 @@ const SearchBar = () => {
             placeholder="Search…"
             inputProps={{ "aria-label": "search" }}
             value={searchTerm}
-            onChange={(e) => setsearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </Search>
       </form>

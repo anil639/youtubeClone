@@ -20,6 +20,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Logo from "../Constants/Logo";
 import SearchBar from "../SearchBar/SearchBar";
 import { categories } from "../Constants/Constant";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -95,7 +96,9 @@ const NavigationBar = ({ selectedCategory, setSelectedCategory }) => {
             <MenuIcon />
           </IconButton>
           <div style={{ width: "100px" }}>
-            <Logo />
+            <Link to="/">
+              <Logo />
+            </Link>
           </div>
           <div style={{ marginLeft: "auto" }}>
             <SearchBar />

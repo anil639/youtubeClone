@@ -4,6 +4,7 @@ import NavigationBar from "./Components/NavigationBar/NavigationBar";
 import Feed from "./Components/Feed/Feed";
 import VideoDetails from "./Components/VideoFile/VideoDetails";
 import ChannelDetails from "./Components/ChannelFile/ChannelDetails";
+import SearchFeed from "./Components/SearchBar/SearchFeed";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Feed />} />
         <Route path="/video/:id" element={<VideoDetails />} />
         <Route path="/channel/:id" element={<ChannelDetails />} />
+        <Route path="/search/:searchTerm" element={<SearchFeed />} />
       </Routes>
     </div>
   );
