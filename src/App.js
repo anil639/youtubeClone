@@ -5,6 +5,7 @@ import Feed from "./Components/Feed/Feed";
 import VideoDetails from "./Components/VideoFile/VideoDetails";
 import ChannelDetails from "./Components/ChannelFile/ChannelDetails";
 import SearchFeed from "./Components/SearchBar/SearchFeed";
+import ErrorPage from "./Components/Error/ErrorPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/video/:id" element={<VideoDetails />} />
         <Route path="/channel/:id" element={<ChannelDetails />} />
         <Route path="/search/:searchTerm" element={<SearchFeed />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );
