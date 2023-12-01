@@ -11,7 +11,7 @@ const Feed = () => {
     FetchFromApi(`search?part=snippet&q=${selectedCategory}`).then((data) =>
       setVideos(data.items)
     );
-  }, []);
+  }, [selectedCategory]);
 
   return (
     <div style={{ marginTop: "60px" }}>
